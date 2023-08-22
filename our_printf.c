@@ -1,14 +1,10 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "main.h"
 
 /**
  * _printf - function that produces output according to a format.
- * @format: character string
- *
+ * @format: character string *
  * Return: number of characters printed(excluding the null byte
  * used to end output to strings '\0'
- *
  */
 
 int _printf(const char *format, ...)
@@ -25,7 +21,6 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-
 			if (*format == 'c')
 			{
 				int c = va_arg(args, int);
@@ -43,9 +38,7 @@ int _printf(const char *format, ...)
 				}
 			}
 			else if (*format == '%')
-			{
 				count += _putchar('%');
-			}
 		}
 		else
 		{
