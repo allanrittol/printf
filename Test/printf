@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include "main.h"
-/**
- * main - function entry point
- *
- * Return: (0) when success
- */
+
 int main(void)
 {
 	int len = 0;
