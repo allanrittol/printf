@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
+	int tally = 0;
 
 	if (format == NULL)
 		return (-1);
@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 			{
 				int c = va_arg(args, int);
 
-				count += _putchar(c);
+				tally += _putchar(c);
 			}
 			else if (*format == 's')
 			{
@@ -33,19 +33,19 @@ int _printf(const char *format, ...)
 
 				while (*s != '\0')
 				{
-					count += _putchar(*s);
+					tally += _putchar(*s);
 					s++;
 				}
 			}
 			else if (*format == '%')
-				count += _putchar('%');
+				tally += _putchar('%');
 		}
 		else
 		{
-			count += _putchar(*format);
+			tally += _putchar(*format);
 		}
 		format++;
 	}
 	va_end(args);
-	return (count);
+	return (tally);
 }
