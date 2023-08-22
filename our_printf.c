@@ -40,12 +40,16 @@ int _printf(const char *format, ...)
 					s++;
 				}
 			}
-			else
+			else if (*format == '%')
 			{
-				count += _putchar(*format);
+				count += _putchar('%');
 			}
-			format++;
 		}
+		else
+		{
+			count += _putchar(*format);
+		}
+		format++;
 	}
 	va_end(args);
 	return (count);
