@@ -1,4 +1,5 @@
 #include <stdarg.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -19,7 +20,7 @@ int _printf(const char *format, ...)
 
 	while (*format != '\0')
 	{
-		if (*format == %)
+		if (*format == '%')
 		{
 			format++;
 
@@ -45,8 +46,7 @@ int _printf(const char *format, ...)
 			}
 			format++;
 		}
-		va_end(args);
-		return (count);
 	}
+	va_end(args);
+	return (count);
 }
-
