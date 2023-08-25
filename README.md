@@ -1,6 +1,6 @@
 PRINTF.
 
-int _printf(const char *, ...);
+int _printf(const char *format, ...);
 
 PRINT FORMATTED DATA TO STDOUT.
 
