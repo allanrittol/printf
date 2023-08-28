@@ -13,10 +13,10 @@ int _printf(const char *format, ...)
 	va_list args;
 	int tally = 0;
 
+	va_start(args, format);
+
 	if (!format || (format[0] == '%' && format[1] == '\0') || format == NULL)
 		return (-1);
-	
-	va_start(args, format);
 
 	while (*format != '\0')
 	{
