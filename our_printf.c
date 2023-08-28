@@ -12,23 +12,25 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int tally = 0;
-	const char *p = format;
 
+	if (!format || (format[0] == '%' && format[1] == '\0') || format == NULL)
+		return (-1);
+	
 	va_start(args, format);
 
-	while (*p != '\0')
+	while (*format != '\0')
 	{
-		if (*p  == '%')
+		if (*format  == '%')
 		{
-			p++;
-			tally += print_format(p, args);
+			format++;
+
+			print_format(format, args);
 		}
 		else
 		{
-			_putchar(*p);
-			tally++;
-			p++;
+			tally += _putchar(*format);
 		}
+		format++;
 	}
 
 	va_end(args);

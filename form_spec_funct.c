@@ -8,70 +8,64 @@ int print_format(const char *format, va_list args)
 	{
 	case 'c':
 		{
-			char value = va_arg(args, int);
+			int c = va_arg(args, int);
 
-			_putchar(value);
-			tally++;
+			tally += _putchar(c);
 			break;
 		}
 	case 'd':
 	case 'i':
 		{
-			int value = va_arg(args, int);
+			int d = va_arg(args, int);
 
-			tally += printf("%d", value);
+			tally += _putchar(d);
 			break;
 		}
 	case 'u':
 		{
-			unsigned int value = va_arg(args, unsigned int);
+			unsigned int u = va_arg(args, unsigned int);
 
-			tally += printf("%u", value);
+			tally += _putchar(u);
 			break;
 		}
 	case 'o':
 		{
-			unsigned int value = va_arg(args, unsigned int);
+			unsigned int o = va_arg(args, unsigned int);
 
-			tally += printf("%o", value);
+			tally += _putchar(o);
 			break;
 		}
 	case 'x':
 	case 'X':
 		{
-			unsigned int value = va_arg(args, unsigned int);
+			unsigned int x = va_arg(args, unsigned int);
 
-			tally += printf(format, value);
+			tally += _putchar(x);
 			break;
 		}
 	case 's':
 		{
-			char *str = va_arg(args, char *);
-			if (str)
+			char *s = va_arg(args, char *);
+
+			while (*s != '\0')
 			{
-				tally += printf("%s", str);
-			}
-			else
-			{
-				tally += printf("(null)");
+				tally += _putchar(*s);
+				s++;
 			}
 			break;
 		}
 	case 'b':
 		{
-			unsigned int value = va_arg(args, unsigned int);
-			tally += print_binary(value);
+			unsigned int b = va_arg(args, unsigned int);
+			tally += print_binary(b);
 			break;
 		}
 	default:
 		{
-			_putchar('%');
-			_putchar(*format);
-			tally += 2;
+			tally += _putchar('%');
 			break;
 		}
 	}
-
 	return (tally);
 }
 
